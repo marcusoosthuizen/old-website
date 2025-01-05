@@ -1,0 +1,48 @@
+baseurl = "https://marcusoosthuizen.com"
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+googleAnalytics = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+languageCode = "en-us"
+theme = "hugo-classic"
+title = "Marcus Oosthuizen"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = false
+hl_Lines = ""
+lineAnchors = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+style = "monokai"
+tabWidth = 4
+
+[permalinks]
+post = "/post/:year/:month/:day/:slug/"
+
+[[menu.main]]
+name = "about me"
+url = "/aboutme/"
+weight = 1
+[[menu.main]]
+name = "projects"
+url = "/project/"
+weight = 2
+[[menu.main]]
+name = "updates"
+url = "/update/"
+weight = 3
+[[menu.feed]]
+name = "rss"
+url = "/index.xml"
+
+[params]
+description = "My humble website showcasing my projects and other stuff!"
+footer = "[Email](mailto:email@marcusoosthuizen.com) | [Youtube](https://youtube.com/@marcusoosthuizen) | [Github](https://github.com/marcusoosthuizen)"
+

@@ -1,0 +1,51 @@
+{{ partial "header.html" . }}
+
+<div class="content-wrapper">
+{{if not .IsHome }}
+  <h2>{{ .Title | markdownify }}</h2>
+  {{ end }}
+
+  {{ .Content }}
+
+  <ul>
+     {{ $pages := .Pages }}
+
+     {{ if .IsHome }}
+     {{ $pages = .GetPage "/update/" }}
+     {{ $pages = $pages.Pages }}
+     {{ end }}
+
+     {{ if eq .Title "Projects" }}
+     
+     {{ $pages = .GetPage "/tags/ongoing/" }}
+     {{ $pages = $pages.Pages }}
+
+     </ul><h3>Ongoing</h3><ul>
+     {{ range (where $pages "Section" "!=" "") }}
+     <li>
+       <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+     </li>
+     {{ end }}
+
+     {{ $pages = .GetPage "/tags/completed/" }}
+     {{ $pages = $pages.Pages }}
+
+    </ul><h3>Completed</h3><ul>
+     {{ range (where $pages "Section" "!=" "") }}
+     <li>
+       <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+     </li>
+     {{ end }}
+     
+     {{ else }}
+
+     {{ range (where $pages "Section" "!=" "") }}
+     <li>
+      {{ if .Date }}<span class="date">{{ .Date.Format "2006/01/02" }}</span>{{ end }}
+       <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+     </li>
+     {{ end }}
+     {{ end }}
+   </ul>
+</div>
+{{ partial "footer.html" . }}

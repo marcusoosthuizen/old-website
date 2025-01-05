@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Marcus O" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{- end }}
+    {{ partial "head_custom.html" . }}
+  </head>
+
+  <body>
+    <br>
+    <header>
+      <nav>
+        <ul>
+          {{ $title := lower .Title }}
+          {{ $section := lower .Section }}
+          <li class="pull-left {{ if .IsHome }}current{{ end }}">
+            <a href="{{ .Site.BaseURL }}"> home</a>
+          </li>
+          {{ range .Site.Menus.main }}
+          {{ $name := lower .Name }}
+          <li class="pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}">
+            <a href="{{ .URL }}">{{ lower .Name }}</a>
+          </li>
+          {{end}}
+
+          {{ range .Site.Menus.feed }}
+          {{ $name := lower .Name}}
+          <li class="pull-right">
+            <a href="{{ .URL }}">{{ lower .Name}}</a>
+          </li>
+          {{end}}
+
+        </ul>
+      </nav>
+    </header>
+
