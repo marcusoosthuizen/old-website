@@ -6,9 +6,9 @@ I am a second year uni student currently studying computer science. This website
 
 Here are some random facts about me:
 - I've lived in 4 different countries
-- My initials are a video game genre
-- Alternative rock is the best type of music
+- Alternative rock is my favourite music genre
+- Ek verstaan ​​bietjie afrikaans と 日本語？
 - I use Arch Linux (btw)
-- if you [click this link](https://www.youtube.com/watch?v=2qgxAHW1w78) something cool will happen
+- if you [click this link](https://www.youtube.com/watch?v=xY2W1As-Plo) something cool will happen
 
 <img src="/images/gifs/dabbing.gif">
